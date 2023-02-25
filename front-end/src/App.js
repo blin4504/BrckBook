@@ -1,12 +1,16 @@
 import './App.css';
 import BaseLogin from './Components/BaseLogin';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
   return (
-    <div className="App">
-      <BaseLogin/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<BaseLogin/>} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

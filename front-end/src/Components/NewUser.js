@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ReactDOM } from 'react';
 
 function handleSignUp(password, confirm){
     console.log(password);
