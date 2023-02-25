@@ -5,11 +5,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:url(https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg);
+  background-image:url(./Components/background.png);
   background-size: cover;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.loginBox {
+
+  background-color: white;
+  margin-left: auto; 
+  margin-right: 60px;
+  width: 500px;
+}
+
+.loginOption {
+  padding : 10px;
+}
+
+input[type="text"], textarea {
+  background-color : #ECEFF2;
+}
+textarea:focus, input:focus {
+  color: #888D8F;
+}
+.icon {
+  max-width: 400px;
+  max-height: 200px;
+  padding:40px;
+}
+button {
+  background-color: #335ACB;
 }

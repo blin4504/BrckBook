@@ -1,20 +1,22 @@
-import ico from "./placeholder.ico"
+import ico from "./brckbook.png";
 import NewUser from "./NewUser";
 
 function Icon(){
     return (
-        <img src={ico}             
+        <img className="icon" src={ico}             
             alt = "logo"
             style={{ display:"flex", 'justifyContent': 'start'}}
         ></img>
         );
 }
 
-export default function LoginPage(){
+export default function BaseLogin(){
     return(
         <div className = "LoginPage">
             <Icon />
             <NewUser />
+
+            
         </div>
     );
 }

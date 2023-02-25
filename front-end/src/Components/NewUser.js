@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import { ReactDOM } from 'react';
+
+function handleSignUp(password, confirm){
+    console.log(password);
+    console.log(confirm);
+    if (password === confirm){
+        document.getElementsByClassName("loginBox")[0].style.display = "none";
+    }
+}
 
 export default function NewUser(){
     const [firstName, setName] = useState("");
@@ -8,21 +17,10 @@ export default function NewUser(){
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-
     return(
-        <div className="Login Box" style={{
-            // display:"flex", 
-            // justifyContent:"start", 
-            background:"gray", 
-            padding:"10px",
-            width: "500px",
-            alignContent:"right"
-
-        }}>
-            <form>
-                <div style={{ 
-                    padding:"10px",
-                }}>
+        <div className="loginBox">
+            <form className='from'>
+                <div className="loginOption">
                     <label>
                         First Name: 
                         <input type="text" value={firstName} onChange={(e) => setName(e.target.value)} />
@@ -32,32 +30,32 @@ export default function NewUser(){
                         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </label>
                 </div>
-                <div style={{padding: "10px"}}>
+                <div className="loginOption">
                     <label>
                         Username: 
                         <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
                     </label>
                 </div>
-                <div style={{padding: "10px"}}>
+                <div className="loginOption">
                     <label>
                         Email: 
                         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}  />
                     </label>
                 </div>
-                <div style={{padding: "10px"}}>
+                <div className="loginOption">
                     <label>
                         Password: 
                         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}  />
                     </label>
                 </div>
-                <div style={{padding: "10px"}}>
+                <div className="loginOption">
                     <label>
                         Confirm Password: 
                         <input type="text" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}  />
                     </label>
                 </div>
-                <button>Sign Up</button>
-                <button>Login</button>
+                <button className="loginOption" type="button" onClick={()=>handleSignUp(password, confirmPassword)} >Sign Up</button>
+                <button className="loginOption" type="button">Login</button>
             </form>
         </div>
     );
