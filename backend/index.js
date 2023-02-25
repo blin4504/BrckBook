@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const userRouter = require('./controllers/users')
+const bookRouter = require('./controllers/books')
 require('dotenv').config()
 
 const app = express()
@@ -12,8 +13,13 @@ const start = async () => {
         app.use(express.json());
         mongoose.set('strictQuery', false);
         await mongoose.connect(
-            'mongodb+srv://aw2755:brickhack9@cluster0.rhh3sru.mongodb.net/?retryWrites=true&w=majority'
+            process.env.MONGODB_URL
         );
+
+        app.use(express.json())
+        app.use('/api/books', bookRouter)
+        app.use('/api/user', userRouter)
+
         app.listen(PORT, () => {
             console.log(`Server started on port ${PORT}`)
         });
@@ -22,3 +28,5 @@ const start = async () => {
         process.exit(1);
     }
 };
+
+start()
