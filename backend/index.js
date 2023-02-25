@@ -1,7 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const userRouter = require('./controllers/users')
+require('dotenv').config()
+
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT
 
 // starts the server
 const start = async () => {
@@ -19,6 +22,3 @@ const start = async () => {
         process.exit(1);
     }
 };
-
-start();
-
