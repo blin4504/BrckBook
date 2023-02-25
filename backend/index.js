@@ -3,16 +3,22 @@ const mongoose = require('mongoose')
 const app = express()
 const PORT = 3001
 
-mongoose.set('strictQuery', false);
+// starts the server
+const start = async () => {
+    try{
+        app.use(express.json());
+        mongoose.set('strictQuery', false);
+        await mongoose.connect(
+            'mongodb+srv://aw2755:brickhack9@cluster0.rhh3sru.mongodb.net/?retryWrites=true&w=majority'
+        );
+        app.listen(PORT, () => {
+            console.log(`Server started on port ${PORT}`)
+        });
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+};
 
-mongoose.connect('mongodb+srv://aw2755:brickhack9@cluster0.rhh3sru.mongodb.net/?retryWrites=true&w=majority')
-.then(() => console.log('connection successful'))
-.catch(err => console.log(err))
+start();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`)
-})
