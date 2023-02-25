@@ -1,17 +1,19 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const userRouter = require('./controllers/users')
+require('dotenv').config()
+
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb+srv://aw2755:brickhack9@cluster0.rhh3sru.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log('connection successful'))
 .catch(err => console.log(err))
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.use(express.json())
+app.use('/api/user', userRouter)
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
