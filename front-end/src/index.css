@@ -14,7 +14,12 @@ code {
 }
 
 .loginBox {
-
+  background-color: white;
+  margin-left: auto; 
+  margin-right: 60px;
+  width: 500px;
+}
+.returnLoginBox {
   background-color: white;
   margin-left: auto; 
   margin-right: 60px;
@@ -36,6 +41,22 @@ textarea:focus, input:focus {
   max-height: 200px;
   padding:40px;
 }
+.iconBB {
+  max-width: 75px;
+  max-height: 75px;
+}
 button {
   background-color: #335ACB;
+}
+
+.searchBar {
+  width: 1000px;
+}
+.topBar {
+  display: "flex";
+  justify-content: "flex-start";
+}
+.reccomendations {
+  height:"500px";
+  background-color:"blue";
 }

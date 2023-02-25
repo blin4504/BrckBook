@@ -7,6 +7,10 @@ function handleSignUp(password, confirm){
         document.getElementsByClassName("loginBox")[0].style.display = "none";
     }
 }
+function handleReturnUser(){
+    document.getElementsByClassName("loginBox")[0].style.display = "none";
+    document.getElementsByClassName("returnLoginBox")[0].style.display = "block";
+}
 
 export default function NewUser(){
     const [firstName, setName] = useState("");
@@ -54,7 +58,7 @@ export default function NewUser(){
                     </label>
                 </div>
                 <button className="loginOption" type="button" onClick={()=>handleSignUp(password, confirmPassword)} >Sign Up</button>
-                <button className="loginOption" type="button">Login</button>
+                <button className="loginOption" type="button" onClick={()=>handleReturnUser()}>Login</button>
             </form>
         </div>
     );

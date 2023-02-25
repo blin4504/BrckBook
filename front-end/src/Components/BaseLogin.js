@@ -1,5 +1,6 @@
 import ico from "./brckbook.png";
 import NewUser from "./NewUser";
+import ReturnUser from "./ReturnUser";
 
 function Icon(){
     return (
@@ -15,8 +16,7 @@ export default function BaseLogin(){
         <div className = "LoginPage">
             <Icon />
             <NewUser />
-
-            
+            <ReturnUser />
         </div>
     );
 }
