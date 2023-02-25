@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const { Book } = require("./book-schema");
+const { Book } = require("../models/books");
 
 app.use(express.json());
 
