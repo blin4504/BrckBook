@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import userService from '../services/user'
 
 export default function SignUp() {
     const [firstName, setName] = useState("");
@@ -8,49 +9,48 @@ export default function SignUp() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    console.log(confirmPassword)
 
     return (
         <>
-            <div class="block">
+            <div className="block">
                 <div>SignUp</div>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="First Name" 
                     value={firstName} onChange={(e) => setName(e.target.value)}
                     />
                 </form>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="Last Name"
                     value={lastName} onChange={(e) => setLastName(e.target.value)}
                     />
                 </form>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="Email"
                     value={email} onChange={(e) => setEmail(e.target.value)}
                     />
                 </form>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="Username"
                     value={userName} onChange={(e) => setUserName(e.target.value)}
                     />
                 </form>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="Password"
                     value={password} onChange={(e) => setPassword(e.target.value)}
                     />
                 </form>
                 <form>
-                    <input class="input"
+                    <input className="input"
                     type="text" 
                     placeholder="Confirm Password"
                     value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
@@ -64,8 +64,16 @@ export default function SignUp() {
         </>
     )
 
-    function signClick(firstName, lastName, userName, email, password, confirmPassword)
-    {
-        
+    function signClick(first, last, username, email, password, confirmPassword) {
+        if (password !== confirmPassword) {
+            alert('not same password!!!')
+            return
+        }
+
+        const user = {first, last, email, username, password}
+        userService.createUser(user)
+        .then((response) => {
+            console.log(response)
+        })
     }
 }
