@@ -56,9 +56,9 @@ export default function SignUp() {
                     value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </form>
-                <button onClick={() => signClick(firstName, lastName, userName, email, password, confirmPassword)}>Signup</button>
+                <button class="butt" onClick={() => signClick(firstName, lastName, userName, email, password, confirmPassword)}>Signup</button>
                 <div>
-                    <Link to ="login">Already have a account? Login Here</Link>
+                    <Link to ="login" class="login">Already have a account? Login Here</Link>
                 </div>
             </div>
         </>
