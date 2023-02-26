@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const saltRounds = 10
 
 userRouter.get('/', async (req, res) => {
-    const users = await User.find({}).select('-password')
+    const users = await User.find({}).select('-password').populate('books')
     res.json(users)
 })
 

@@ -3,9 +3,10 @@ const app = express.Router()
 const { Book } = require("../models/books");
 const jwt = require('jsonwebtoken')
 const axios = require('axios')
+const User = require('../models/user')
 
 app.get("/", async (req, res) => {
-    const allBooks = await Book.find();
+    const allBooks = await Book.find()
     return res.status(200).json(allBooks);
 });
 
@@ -21,23 +22,25 @@ const getToken = (req) => {
 
 app.post("/:title", async (req, res) => {
     const title = req.params
-    console.log(title)
     const token = getToken(req)
     const userData = await jwt.verify(token, process.env.SECRET)
-    const user = User.findOne({ 'username': userData.username })
+    const {username, id } = userData
+    const user = await User.findOne({ username })
     
-    const data = axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}`)
+    const data = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title.title}`)
     const book = new Book({
-        title: data.items.volumeInfo.title,
-        author: data.items.volumeInfo.authors[0],
-        description: data.items.volumeInfo.description,
-        cover: data.items.volumeInfo.imageLinks.thumbnail,
-        userID: user._id
+        title: data.data.items[0].volumeInfo.title,
+        author: data.data.items[0].volumeInfo.authors[0],
+        description: data.data.items[0].volumeInfo.description,
+        cover: data.data.items[0].volumeInfo.imageLinks.thumbnail,
+        userID: id
     })
 
+    console.log(book.id)
+
+    user.books.push(book.id)
+    user.save()
     book.save()
-    user.books.concat(book._id)
-    res.send(book)
 });
 
 module.exports = app
