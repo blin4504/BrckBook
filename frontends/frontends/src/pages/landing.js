@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import bookService from '../services/books'
+import Book from '../components/book'
 
 export default function Landing() {
     const [firstName, setName] = useState("");
     const [title, setTitle] = useState("");
+    const [books, setBooks] = useState([])
+
+    useEffect(() => {
+        bookService.getAll().then(data =>
+            {setBooks(data.data)}
+        )        
+    }, [])
+
     return (
         <>
             <div>Welcome {firstName}</div>
@@ -14,6 +24,7 @@ export default function Landing() {
                 />
                 <button onClick={() => searchClick(title)}>🔎</button>
             </div>
+            <Book books={books} />
         </>
     )
 
