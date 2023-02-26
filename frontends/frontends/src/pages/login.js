@@ -23,7 +23,6 @@ export default function Login() {
     }, [loggedIn])
 
     return (
-        <>
         <div class="block2">
             
             <Link to ="/" class="b2signup">Back to Signup</Link>
@@ -49,9 +48,6 @@ export default function Login() {
                     <button onClick={() => logClick(userName, password)}>Login</button>
                 )
             }
-            {/* <Link to='/landing'><button onClick={() => logClick(userName, password)}>Login</button></Link> */}
-        </>
+        </div >
     )
-
-    
 }
