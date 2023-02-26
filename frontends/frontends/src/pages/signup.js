@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../services/user'
+import Logo from '../components/Logo';
 
 export default function SignUp() {
     const [firstName, setName] = useState("");
@@ -11,7 +12,8 @@ export default function SignUp() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     return (
-        <>
+        <div>
+            <Logo />
             <div className="block">
                 <div>SignUp</div>
                 <form>
@@ -61,7 +63,7 @@ export default function SignUp() {
                     <Link to ="login" className="login">Already have a account? Login Here</Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 
     function signClick(first, last, username, email, password, confirmPassword) {
