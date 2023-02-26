@@ -7,9 +7,9 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [loggedIn, setLoggedIn] = useState(false);
 
-    function logClick(username, password) {
+    async function logClick(username, password) {
         const user = { username, password }
-        loginService.logIn(user)
+        await loginService.logIn(user)
         .then(response => {
             window.localStorage.setItem("user", JSON.stringify(response.data))
             setLoggedIn(true)
@@ -24,7 +24,6 @@ export default function Login() {
 
     return (
         <div class="block2">
-            
             <Link to ="/" class="b2signup">Back to Signup</Link>
             <div>Login</div>
             <form>

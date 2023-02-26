@@ -56,9 +56,9 @@ export default function SignUp() {
                     value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </form>
-                <button class="butt" onClick={() => signClick(firstName, lastName, userName, email, password, confirmPassword)}>Signup</button>
+                <button className="butt" onClick={() => signClick(firstName, lastName, userName, email, password, confirmPassword)}>Signup</button>
                 <div>
-                    <Link to ="login" class="login">Already have a account? Login Here</Link>
+                    <Link to ="login" className="login">Already have a account? Login Here</Link>
                 </div>
             </div>
         </>
@@ -73,7 +73,8 @@ export default function SignUp() {
         const user = {first, last, email, username, password}
         userService.createUser(user)
         .then((response) => {
-            console.log(response)
+            // console.log(response)
+            window.location.href = '/login'
         })
     }
 }
