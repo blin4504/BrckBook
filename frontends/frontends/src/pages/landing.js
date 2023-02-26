@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import bookService from '../services/books'
 import Book from '../components/book'
+import axios from "axios";
 
 export default function Landing() {
     const [firstName, setName] = useState("");
     const [title, setTitle] = useState("");
     const [books, setBooks] = useState([])
-
-    useEffect(() => {
-        bookService.getAll().then(data =>
-            {setBooks(data.data)}
-        )        
-    }, [])
-
+    
     return (
         <>
             <div>Welcome {firstName}</div>
@@ -28,8 +23,22 @@ export default function Landing() {
         </>
     )
 
-    function searchClick(title)
+    function searchClick(t)
     {
-        
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(`related:${t}`)}&key=${process.env.REACT_APP_API_KEY}`)
+        // .then(response => console.log(response.json()))
+        .then(response => response.json())
+        // console.log(item.volumeInfo.imageLinks.smallThumbnail)
+        .then(data => {
+            const relatedBooks = data.items.map(item => {
+                // title: item.volumeInfo.title,
+            return {cover: item.volumeInfo.imageLinks.smallThumbnail };
+
+            });  
+            setBooks(relatedBooks)
+        })
+        .catch(error => {
+            console.error(error);
+        });
     }
 }
