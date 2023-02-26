@@ -18,6 +18,7 @@ code {
   margin-left: auto; 
   margin-right: 60px;
   width: 500px;
+  padding: 10px;
 }
 .returnLoginBox {
   background-color: white;
@@ -51,12 +52,25 @@ button {
 
 .searchBar {
   width: 1000px;
+  height: 25px;
+  padding: 10px;
 }
 .topBar {
-  display: "flex";
-  justify-content: "flex-start";
+  display: flex;
+  align-content: "last baseline";
+  padding: 10px;
 }
-.reccomendations {
-  height:"500px";
-  background-color:"blue";
+.rec {
+  background-color: blueviolet;
+  padding: 10px; 
+}
+.pop {
+  background-color: red;
+  padding: 10px;  
+}
+.land {
+  padding: 10px;
+}
+li {
+  display: inline;
 }

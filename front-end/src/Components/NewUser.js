@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function handleSignUp(password, confirm){
     console.log(password);
@@ -22,7 +23,8 @@ export default function NewUser(){
 
     return(
         <div className="loginBox">
-            <form className='from'>
+            <form className='form'>
+                <h3>Sign Up</h3>
                 <div className="loginOption">
                     <label>
                         First Name: 
@@ -57,7 +59,9 @@ export default function NewUser(){
                         <input type="text" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}  />
                     </label>
                 </div>
-                <button className="loginOption" type="button" onClick={()=>handleSignUp(password, confirmPassword)} >Sign Up</button>
+                <Link to="/profile-pick">
+                    <button className="loginOption" type="button" onClick={()=>handleSignUp(password, confirmPassword)} >Sign Up</button>
+                </Link>
                 <button className="loginOption" type="button" onClick={()=>handleReturnUser()}>Login</button>
             </form>
         </div>
