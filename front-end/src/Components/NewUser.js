@@ -15,6 +15,7 @@ function handleReturnUser(){
 
 export default function NewUser(){
     const [firstName, setName] = useState("");
+    
     const [lastName, setLastName] = useState("");
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");

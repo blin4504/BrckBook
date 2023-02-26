@@ -15,11 +15,13 @@ code {
 
 .loginBox {
   background-color: white;
+  border-radius: 30px;
   margin-left: auto; 
   margin-right: 60px;
   width: 500px;
   padding: 10px;
 }
+
 .returnLoginBox {
   background-color: white;
   margin-left: auto; 
