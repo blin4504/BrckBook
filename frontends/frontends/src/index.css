@@ -25,6 +25,10 @@ code {
   width: 100vh;
   margin-left: 55vh;
 }
+.back {
+  max-height: 30px;
+  max-width: 30px;
+}
 
 .block,
 .login-form {

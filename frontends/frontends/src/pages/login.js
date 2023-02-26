@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Back from '../components/back';
 import Logo from '../components/Logo';
 import loginService from '../services/login'
 
@@ -28,7 +29,10 @@ export default function Login() {
             <Logo />
             <div class="block2">
                 <div className='login-form'>
-                <Link to ="/" class="b2signup">Back to Signup</Link>
+                {/* <Link to ="/" class="b2signup">Back to Signup</Link> */}
+                    <Link to="/" class="b2signup">
+                        <Back />
+                    </Link>
                     <div>Login</div>
                     <form>
                         <input class="input"
