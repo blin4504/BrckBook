@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const userRouter = require('./controllers/users')
 const bookRouter = require('./controllers/books')
 const loginRouter = require('./controllers/login')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
@@ -11,13 +12,13 @@ const PORT = process.env.PORT
 // starts the server
 const start = async () => {
     try{
+        app.use(cors())
         app.use(express.json());
         mongoose.set('strictQuery', false);
         await mongoose.connect(
             process.env.MONGODB_URL
         );
 
-        app.use(express.json())
         app.use('/api/books', bookRouter)
         app.use('/api/user', userRouter)
         app.use('/api/login', loginRouter)
