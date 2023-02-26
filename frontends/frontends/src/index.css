@@ -17,16 +17,89 @@ code {
 
 .block
 {
-  background-color: white;
+  background-color: #ECEFF2;
   display:flex;
-  width: 200px;
+  width: 400px;
+  height: 400px;
   text-align: center;
   flex-direction: column;
+  margin-left: auto; 
+  margin-right: 150px;
+  margin-top: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.block2
+{
+  background-color: #ECEFF2;
+  display:flex;
+  width: 400px;
+  height: 150px;
+  text-align: center;
+  flex-direction: column;
+  margin-left: auto; 
+  margin-right: 150px;
+  margin-top: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 20px;
 }
 
 .input
 {
   border-radius: 5px;
+  height: 40px;
+  width: 200px;
   border-color: blue;
 }
 
+.input:hover
+{
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.short
+{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.butt
+{
+  width: 57px;
+  margin-left: 170px;
+  background-color: white;
+  color: black;
+  border: 1px solid blue; 
+  border-radius: 5px;
+}
+
+.butt 
+{
+  transition-duration: 0.4s;
+}
+
+.butt:hover 
+{
+  background-color: blue; 
+  color: white;
+}
+
+.b2signup
+{
+  text-align: left !important;
+  font-size: 15px;
+}
+
+.b2signup:hover
+{
+  color: red;
+}
+
+.login:hover
+{
+  color: red;
+}

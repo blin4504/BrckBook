@@ -4,13 +4,26 @@ import Book from '../components/book'
 import axios from "axios";
 
 export default function Landing() {
-    const [firstName, setName] = useState("");
+    // const [firstName, setName] = useState("");
     const [title, setTitle] = useState("");
     const [books, setBooks] = useState([])
-    
+
+    useEffect(() => {
+        bookService.getAll().then(data =>
+            {setBooks(data.data)}
+        )        
+    }, [])
+
+    const handleLogout = () => {
+        window.localStorage.clear()
+        window.location.href = '/login'
+    }
+
+    const name = JSON.parse(window.localStorage['user'])
     return (
         <>
-            <div>Welcome {firstName}</div>
+            <div>Welcome {name.name}</div>
+            <button onClick={handleLogout}>logout</button>
             <div>
                 <input 
                 type="text" 
