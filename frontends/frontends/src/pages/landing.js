@@ -39,11 +39,11 @@ export default function Landing() {
 
     function searchClick(t)
     {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(`related:${t}`)}&printType=books&key=${process.env.REACT_APP_API_KEY}`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(`related:${t}`)}&maxResults=40&printType=books&key=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(data => {
             const relatedBooks = data.items.map(item => {
-            return {cover: item.volumeInfo.imageLinks.smallThumbnail };
+            return {cover: item.volumeInfo.imageLinks.smallThumbnail, canonicalVolumeLink: item.volumeInfo.canonicalVolumeLink};
             });  
             setBooks(relatedBooks)
         })

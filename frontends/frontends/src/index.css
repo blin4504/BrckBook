@@ -132,6 +132,7 @@ input:focus {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 30px;
+  position: relative;
 }
 
 .book-display > li {
@@ -140,6 +141,21 @@ input:focus {
   position: relative;
   top: 0;
   transition: top ease 0.5s;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  width: 50px;
+  padding: 50px;
+  font-family: 'Lexend Deca', sans-serif; 
+  color: #FFFF;
 }
 
 li:hover {
